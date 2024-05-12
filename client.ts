@@ -1,10 +1,11 @@
 import { createPromiseClient } from "@connectrpc/connect";
 import { ElizaService } from "./gen/eliza_connect";
-import { createConnectTransport } from "@connectrpc/connect-node";
+import { createConnectTransport } from "@connectrpc/connect-web";
 
 const transport = createConnectTransport({
   baseUrl: "http://localhost:8080",
-  httpVersion: "1.1"
+  // Not needed. Web browsers use HTTP/2 automatically.
+  // httpVersion: "1.1"
 });
 
 async function main() {
